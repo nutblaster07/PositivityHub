@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positivity Hub - Find Your Inner Strength</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --text: #4a5568;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .about-image {
+            text-align: center;
+            font-size: 200px;
+            opacity: 0.8;
+        }
+
+        /* Quote Section */
+        #quotes {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quote-text {
+            font-size: 28px;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .quote-author {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .quote-nav {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .quote-nav button {
+            padding: 10px 25px;
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .quote-nav button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: white;
+                width: 70%;
+                height: calc(100vh - 70px);
+                padding: 30px;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                font-size: 120px;
+            }
+
+            .quote-text {
+                font-size: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">🌱 Positivity Hub</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a onclick="scrollToSection('hero')">Home</a></li>
+                <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('quotes')">Quotes</a></li>
+                <li><a onclick="scrollToSection('services')">Services</a></li>
+                <li><a onclick="scrollToSection('testimonials')">Stories</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>You Are Stronger Than You Think</h1>
+            <p>Welcome to your journey of transformation. We're here to help you rediscover your inner strength, overcome challenges, and embrace positivity every single day.</p>
+            <div class="cta-buttons">
+                <a href="https://nutblaster07.github.io/FORMS/" target="_blank" class="btn btn-primary">Join Free Session</a>
+                <a onclick="scrollToSection('about')" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Positivity Hub</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Empowering Lives, One Session at a Time</h3>
+                <p>Life can be overwhelming, and sometimes we all need a helping hand to lift us up. At Positivity Hub, we understand the struggles of feeling low, demotivated, or lost.</p>
+                <p>Our mission is simple: to bring light into your darkest moments and help you discover the incredible strength that lies within you. Through personalized sessions, motivational guidance, and a supportive community, we're here to walk with you on your journey to a happier, more fulfilled life.</p>
+                <p><strong>You are not alone. Let's grow together.</strong></p>
+            </div>
+            <div class="about-image">
+                🌟
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes">
+        <h2 class="section-title" style="color: white;">Daily Motivation</h2>
+        <div class="quote-container">
+            <div class="quote-text" id="quoteText">"The only way to do great work is to love what you do."</div>
+            <div class="quote-author" id="quoteAuthor">- Steve Jobs</div>
+            <div class="quote-nav">
+                <button onclick="previousQuote()">← Previous</button>
+                <button onclick="nextQuote()">Next →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">How We Help You</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>One-on-One Sessions</h3>
+                <p>Personalized guidance tailored to your unique challenges and goals. Get the support you deserve.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Group Workshops</h3>
+                <p>Join our free live sessions and connect with others on similar journeys. Together, we're stronger.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>Resources & Tools</h3>
+                <p>Access our library of motivational content, exercises, and practical tools for daily positivity.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💪</div>
+                <h3>Confidence Building</h3>
+                <p>Rebuild your self-esteem and confidence through proven techniques and continuous support.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧘</div>
+                <h3>Mindfulness Training</h3>
+                <p>Learn to stay present, manage stress, and cultivate inner peace through mindfulness practices.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎉</div>
+                <h3>Success Coaching</h3>
+                <p>Set meaningful goals and achieve them with our structured coaching programs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2 class="section-title">Success Stories</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I was at my lowest point when I found Positivity Hub. Their sessions helped me rediscover my purpose and now I wake up excited for each day."</p>
+                <p class="testimonial-author">- Priya S.</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The free live sessions changed my life. I met amazing people and learned that I'm not alone in my struggles. Thank you for this community!"</p>
+                <p class="testimonial-author">- Rahul M.</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"From feeling worthless to feeling empowered - this journey has been incredible. The coaches here truly care and understand what you're going through."</p>
+                <p class="testimonial-author">- Anita K.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title" style="color: white;">Ready to Start Your Journey?</h2>
+        <div class="contact-content">
+            <p>Take the first step towards a brighter tomorrow. Join our free live sessions and connect with our supportive community.</p>
+            <a href="https://nutblaster07.github.io/FORMS/" target="_blank" class="btn btn-primary">Register for Free Session</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Positivity Hub. All rights reserved.</p>
+        <p>Spreading hope, one heart at a time.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/hazarika.t?igsh=MWxlcm83bGJkZGphdA==" title="Facebook"><img src="icons8-facebook-48.png" alt="" srcset=""></a>
+            <a href="https://www.instagram.com/hazarika.t?igsh=MWxlcm83bGJkZGphdA==" title="Instagram"><img src="icons8-instagram-48.png" alt="" srcset=""></a>
+            <a href="https://www.instagram.com/hazarika.t?igsh=MWxlcm83bGJkZGphdA==" title="Twitter"><img src="icons8-x-50.png" alt="" srcset=""></a>
+            <a href="https://www.instagram.com/hazarika.t?igsh=MWxlcm83bGJkZGphdA==" title="YouTube"><img src="icons8-youtube-48.png" alt="" srcset=""></a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scroll
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            const offset = 70;
+            const elementPosition = element.offsetTop - offset;
+            window.scrollTo({
+                top: elementPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Motivational Quotes
+        const quotes = [
+            {
+                text: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "Believe you can and you're halfway there.",
+                author: "Theodore Roosevelt"
+            },
+            {
+                text: "Your limitation—it's only your imagination.",
+                author: "Unknown"
+            },
+            {
+                text: "The harder you work for something, the greater you'll feel when you achieve it.",
+                author: "Unknown"
+            },
+            {
+                text: "Don't watch the clock; do what it does. Keep going.",
+                author: "Sam Levenson"
+            },
+            {
+                text: "You are never too old to set another goal or to dream a new dream.",
+                author: "C.S. Lewis"
+            },
+            {
+                text: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                author: "Winston Churchill"
+            },
+            {
+                text: "The future belongs to those who believe in the beauty of their dreams.",
+                author: "Eleanor Roosevelt"
+            },
+            {
+                text: "It does not matter how slowly you go as long as you do not stop.",
+                author: "Confucius"
+            },
+            {
+                text: "Everything you've ever wanted is on the other side of fear.",
+                author: "George Addair"
+            }
+        ];
+
+        let currentQuoteIndex = 0;
+
+        function displayQuote(index) {
+            document.getElementById('quoteText').textContent = `"${quotes[index].text}"`;
+            document.getElementById('quoteAuthor').textContent = `- ${quotes[index].author}`;
+        }
+
+        function nextQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            displayQuote(currentQuoteIndex);
+        }
+
+        function previousQuote() {
+            currentQuoteIndex = (currentQuoteIndex - 1 + quotes.length) % quotes.length;
+            displayQuote(currentQuoteIndex);
+        }
+
+        // Auto-rotate quotes every 10 seconds
+        setInterval(nextQuote, 10000);
+    </script>
+</body>
+</html>
