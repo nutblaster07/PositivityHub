@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Positivity Hub - Find Your Inner Strength</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -40,21 +41,21 @@
         }
 
         nav.scrolled {
-            padding: 10px 0;
+            padding: 5px 0;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 15px 20px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -64,7 +65,7 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
 
@@ -74,6 +75,7 @@
             font-weight: 500;
             transition: color 0.3s;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .nav-links a:hover {
@@ -104,7 +106,7 @@
             justify-content: center;
             text-align: center;
             color: white;
-            padding: 40px 20px;
+            padding: 60px 40px;
             position: relative;
             overflow: hidden;
         }
@@ -122,7 +124,7 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             z-index: 1;
             animation: fadeInUp 1s ease;
         }
@@ -139,15 +141,17 @@
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 56px;
+            margin-bottom: 25px;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: 22px;
+            margin-bottom: 40px;
             opacity: 0.95;
+            line-height: 1.6;
         }
 
         .cta-buttons {
@@ -158,14 +162,14 @@
         }
 
         .btn {
-            padding: 15px 35px;
+            padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .btn-primary {
@@ -192,15 +196,23 @@
 
         /* Section Styles */
         section {
-            padding: 80px 20px;
-            max-width: 1200px;
+            min-height: 100vh;
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-content {
+            max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .section-title {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
+            font-size: 42px;
+            margin-bottom: 60px;
             color: var(--dark);
             position: relative;
         }
@@ -208,10 +220,10 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
+            width: 100px;
             height: 4px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin: 15px auto 0;
+            margin: 20px auto 0;
             border-radius: 2px;
         }
 
@@ -223,24 +235,25 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 80px;
             align-items: center;
         }
 
         .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 25px;
             color: var(--dark);
         }
 
         .about-text p {
-            margin-bottom: 15px;
-            font-size: 18px;
+            margin-bottom: 20px;
+            font-size: 19px;
+            line-height: 1.8;
         }
 
         .about-image {
             text-align: center;
-            font-size: 200px;
+            font-size: 280px;
             opacity: 0.8;
         }
 
@@ -251,43 +264,44 @@
         }
 
         .quote-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
-            padding: 40px;
+            padding: 60px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 25px;
             backdrop-filter: blur(10px);
         }
 
         .quote-text {
-            font-size: 28px;
+            font-size: 36px;
             font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         .quote-author {
-            font-size: 18px;
+            font-size: 22px;
             opacity: 0.9;
         }
 
         .quote-nav {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
         }
 
         .quote-nav button {
-            padding: 10px 25px;
+            padding: 14px 35px;
             background: white;
             color: var(--primary);
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
+            font-size: 16px;
         }
 
         .quote-nav button:hover {
@@ -298,15 +312,15 @@
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-top: 50px;
         }
 
         .service-card {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
+            padding: 50px 35px;
+            border-radius: 20px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: all 0.3s ease;
@@ -318,45 +332,53 @@
         }
 
         .service-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
+            font-size: 70px;
+            margin-bottom: 25px;
         }
 
         .service-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 26px;
+            margin-bottom: 18px;
             color: var(--dark);
         }
 
         .service-card p {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--text);
+            line-height: 1.7;
         }
 
         /* Testimonials */
+        #testimonials {
+            background: var(--light);
+        }
+
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-top: 50px;
         }
 
         .testimonial-card {
-            background: var(--light);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 4px solid var(--primary);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
 
         .testimonial-text {
             font-style: italic;
-            margin-bottom: 15px;
-            font-size: 16px;
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.7;
         }
 
         .testimonial-author {
             font-weight: 600;
             color: var(--primary);
+            font-size: 18px;
         }
 
         /* Contact Section */
@@ -367,13 +389,14 @@
         }
 
         .contact-content {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .contact-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: 20px;
+            margin-bottom: 40px;
+            line-height: 1.7;
         }
 
         /* Footer */
@@ -381,31 +404,199 @@
             background: var(--dark);
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 50px 40px;
         }
 
         footer p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
         .social-links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .social-links a {
             color: white;
-            font-size: 24px;
-            transition: color 0.3s;
+            font-size: 28px;
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .social-links a:hover {
-            color: var(--accent);
+            transform: translateY(-5px);
+            background: var(--primary);
+        }
+
+        /* Products Section */
+        #products {
+            background: var(--light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 45px 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .product-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.02);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.25);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .featured-badge {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .product-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+        }
+
+        .product-card h3 {
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .product-tagline {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .product-features {
+            list-style: none;
+            text-align: left;
+            margin: 25px 0;
+            padding: 0;
+        }
+
+        .product-features li {
+            padding: 10px 0;
+            color: var(--text);
+            font-size: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .product-features li:last-child {
+            border-bottom: none;
+        }
+
+        .product-price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 25px 0;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            max-width: 250px;
+            margin-top: 10px;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-secondary-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 30px;
+        }
+
+        .btn-secondary-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+        }
+
+        .btn-buy:hover {
+            background: linear-gradient(135deg, #f5576c, #f093fb);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .about-image {
+                font-size: 200px;
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex;
@@ -428,24 +619,46 @@
                 right: 0;
             }
 
+            section {
+                padding: 80px 25px;
+            }
+
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 18px;
             }
 
             .about-content {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .about-image {
-                font-size: 120px;
+                font-size: 150px;
             }
 
             .quote-text {
-                font-size: 20px;
+                font-size: 24px;
+            }
+
+            .quote-container {
+                padding: 40px 30px;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card.featured {
+                transform: scale(1);
             }
 
             .cta-buttons {
@@ -455,7 +668,11 @@
 
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
+            }
+
+            .section-title {
+                font-size: 32px;
             }
         }
     </style>
@@ -470,6 +687,7 @@
                 <li><a onclick="scrollToSection('about')">About</a></li>
                 <li><a onclick="scrollToSection('quotes')">Quotes</a></li>
                 <li><a onclick="scrollToSection('services')">Services</a></li>
+                <li><a onclick="scrollToSection('products')">Products</a></li>
                 <li><a onclick="scrollToSection('testimonials')">Stories</a></li>
                 <li><a onclick="scrollToSection('contact')">Contact</a></li>
             </ul>
@@ -495,95 +713,160 @@
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">About Positivity Hub</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Empowering Lives, One Session at a Time</h3>
-                <p>Life can be overwhelming, and sometimes we all need a helping hand to lift us up. At Positivity Hub, we understand the struggles of feeling low, demotivated, or lost.</p>
-                <p>Our mission is simple: to bring light into your darkest moments and help you discover the incredible strength that lies within you. Through personalized sessions, motivational guidance, and a supportive community, we're here to walk with you on your journey to a happier, more fulfilled life.</p>
-                <p><strong>You are not alone. Let's grow together.</strong></p>
-            </div>
-            <div class="about-image">
-                🌟
+        <div class="section-content">
+            <h2 class="section-title">About Positivity Hub</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Empowering Lives, One Session at a Time</h3>
+                    <p>Life can be overwhelming, and sometimes we all need a helping hand to lift us up. At Positivity Hub, we understand the struggles of feeling low, demotivated, or lost.</p>
+                    <p>Our mission is simple: to bring light into your darkest moments and help you discover the incredible strength that lies within you. Through personalized sessions, motivational guidance, and a supportive community, we're here to walk with you on your journey to a happier, more fulfilled life.</p>
+                    <p><strong>You are not alone. Let's grow together.</strong></p>
+                </div>
+                <div class="about-image">
+                    🌟
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Quotes Section -->
     <section id="quotes">
-        <h2 class="section-title" style="color: white;">Daily Motivation</h2>
-        <div class="quote-container">
-            <div class="quote-text" id="quoteText">"The only way to do great work is to love what you do."</div>
-            <div class="quote-author" id="quoteAuthor">- Steve Jobs</div>
-            <div class="quote-nav">
-                <button onclick="previousQuote()">← Previous</button>
-                <button onclick="nextQuote()">Next →</button>
+        <div class="section-content">
+            <h2 class="section-title" style="color: white;">Daily Motivation</h2>
+            <div class="quote-container">
+                <div class="quote-text" id="quoteText">"The only way to do great work is to love what you do."</div>
+                <div class="quote-author" id="quoteAuthor">- Steve Jobs</div>
+                <div class="quote-nav">
+                    <button onclick="previousQuote()">← Previous</button>
+                    <button onclick="nextQuote()">Next →</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
-        <h2 class="section-title">How We Help You</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>One-on-One Sessions</h3>
-                <p>Personalized guidance tailored to your unique challenges and goals. Get the support you deserve.</p>
+        <div class="section-content">
+            <h2 class="section-title">How We Help You</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>One-on-One Sessions</h3>
+                    <p>Personalized guidance tailored to your unique challenges and goals. Get the support you deserve.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Group Workshops</h3>
+                    <p>Join our free live sessions and connect with others on similar journeys. Together, we're stronger.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Resources & Tools</h3>
+                    <p>Access our library of motivational content, exercises, and practical tools for daily positivity.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💪</div>
+                    <h3>Confidence Building</h3>
+                    <p>Rebuild your self-esteem and confidence through proven techniques and continuous support.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧘</div>
+                    <h3>Mindfulness Training</h3>
+                    <p>Learn to stay present, manage stress, and cultivate inner peace through mindfulness practices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Success Coaching</h3>
+                    <p>Set meaningful goals and achieve them with our structured coaching programs.</p>
+                </div>
             </div>
-            <div class="service-card">
-                <div class="service-icon">👥</div>
-                <h3>Group Workshops</h3>
-                <p>Join our free live sessions and connect with others on similar journeys. Together, we're stronger.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📚</div>
-                <h3>Resources & Tools</h3>
-                <p>Access our library of motivational content, exercises, and practical tools for daily positivity.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💪</div>
-                <h3>Confidence Building</h3>
-                <p>Rebuild your self-esteem and confidence through proven techniques and continuous support.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🧘</div>
-                <h3>Mindfulness Training</h3>
-                <p>Learn to stay present, manage stress, and cultivate inner peace through mindfulness practices.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎉</div>
-                <h3>Success Coaching</h3>
-                <p>Set meaningful goals and achieve them with our structured coaching programs.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="section-content">
+            <h2 class="section-title">Our Transformative Products</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 18px; color: var(--text);">
+                Discover our specially curated programs designed to elevate your life and embrace sustainable living.
+            </p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge">Digital Course</div>
+                    <div class="product-icon">💰</div>
+                    <h3>Money Frequency Mastery</h3>
+                    <p class="product-tagline">Unlock Your Abundance Mindset</p>
+                    <p class="product-description">
+                        Transform your relationship with money and attract prosperity into your life. Learn powerful techniques to shift your money mindset, overcome financial blocks, and align with the frequency of abundance.
+                    </p>
+                    <ul class="product-features">
+                        <li>✓ Abundance mindset training</li>
+                        <li>✓ Wealth manifestation techniques</li>
+                        <li>✓ Financial goal setting strategies</li>
+                        <li>✓ Daily money affirmations & exercises</li>
+                        <li>✓ Lifetime access to course materials</li>
+                    </ul>
+                    <div class="product-price">₹2</div>
+                    <div class="product-buttons">
+                        <a href="https://nutblaster07.github.io/FORMS/" target="_blank" class="btn btn-secondary-outline">Learn More</a>
+                        <a href="#" onclick="buyProduct('Money Frequency Mastery', 2); return false;" class="btn btn-buy">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-badge featured-badge">Best Seller</div>
+                    <div class="product-icon">🌾</div>
+                    <h3>Natural Farming Revolution</h3>
+                    <p class="product-tagline">Grow Pure, Live Pure</p>
+                    <p class="product-description">
+                        Discover the ancient wisdom of chemical-free farming. Learn sustainable agricultural practices that restore soil health, increase yields naturally, and produce nutrient-rich crops without harmful chemicals.
+                    </p>
+                    <ul class="product-features">
+                        <li>✓ Zero-chemical farming techniques</li>
+                        <li>✓ Natural pest control methods</li>
+                        <li>✓ Organic fertilizer recipes</li>
+                        <li>✓ Soil regeneration strategies</li>
+                        <li>✓ Expert consultation & support</li>
+                    </ul>
+                    <div class="product-price">₹3,499</div>
+                    <div class="product-buttons">
+                        <a href="https://nutblaster07.github.io/FORMS/" target="_blank" class="btn btn-secondary-outline">Learn More</a>
+                        <a href="#" onclick="buyProduct('Natural Farming Revolution', 3499); return false;" class="btn btn-buy">Buy Now</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials">
-        <h2 class="section-title">Success Stories</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"I was at my lowest point when I found Positivity Hub. Their sessions helped me rediscover my purpose and now I wake up excited for each day."</p>
-                <p class="testimonial-author">- Priya S.</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"The free live sessions changed my life. I met amazing people and learned that I'm not alone in my struggles. Thank you for this community!"</p>
-                <p class="testimonial-author">- Rahul M.</p>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"From feeling worthless to feeling empowered - this journey has been incredible. The coaches here truly care and understand what you're going through."</p>
-                <p class="testimonial-author">- Anita K.</p>
+        <div class="section-content">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I was at my lowest point when I found Positivity Hub. Their sessions helped me rediscover my purpose and now I wake up excited for each day."</p>
+                    <p class="testimonial-author">- Priya S.</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The free live sessions changed my life. I met amazing people and learned that I'm not alone in my struggles. Thank you for this community!"</p>
+                    <p class="testimonial-author">- Rahul M.</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"From feeling worthless to feeling empowered - this journey has been incredible. The coaches here truly care and understand what you're going through."</p>
+                    <p class="testimonial-author">- Anita K.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title" style="color: white;">Ready to Start Your Journey?</h2>
-        <div class="contact-content">
-            <p>Take the first step towards a brighter tomorrow. Join our free live sessions and connect with our supportive community.</p>
-            <a href="https://nutblaster07.github.io/FORMS/" target="_blank" class="btn btn-primary">Register for Free Session</a>
+        <div class="section-content">
+            <h2 class="section-title" style="color: white;">Ready to Start Your Journey?</h2>
+            <div class="contact-content">
+                <p>Take the first step towards a brighter tomorrow. Join our free live sessions and connect with our supportive community.</p>
+                <a href="https://nutblaster07.github.io/FORMS/" target="_blank" class="btn btn-primary">Register for Free Session</a>
+            </div>
         </div>
     </section>
 
@@ -591,7 +874,7 @@
     <footer>
         <p>&copy; 2025 Positivity Hub. All rights reserved.</p>
         <p>Spreading hope, one heart at a time.</p>
-        <div class="social-links">
+     <div class="social-links">
             <a href="https://www.instagram.com/hazarika.t?igsh=MWxlcm83bGJkZGphdA==" title="Facebook"><img src="icons8-facebook-48.png" alt="" srcset=""></a>
             <a href="https://www.instagram.com/hazarika.t?igsh=MWxlcm83bGJkZGphdA==" title="Instagram"><img src="icons8-instagram-48.png" alt="" srcset=""></a>
             <a href="https://www.instagram.com/hazarika.t?igsh=MWxlcm83bGJkZGphdA==" title="Twitter"><img src="icons8-x-50.png" alt="" srcset=""></a>
@@ -599,6 +882,9 @@
         </div>
     </footer>
 
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
@@ -699,6 +985,56 @@
 
         // Auto-rotate quotes every 10 seconds
         setInterval(nextQuote, 10000);
+
+        // Razorpay Buy Product Function
+        function buyProduct(productName, price) {
+            const options = {
+                "key": "rzp_live_RTk3V3jMdv0dmZ", // Replace with your Razorpay Key ID
+                "amount": price * 100, // Amount in paise (multiply by 100)
+                "currency": "INR",
+                "name": "Positivity Hub",
+                "description": productName,
+                "image": "", // Optional: Add your logo URL here
+                "handler": function (response) {
+                    // Payment successful
+                    alert(`✅ Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+                    
+                    // Optional: Send payment details to your server or Google Sheet
+                    // You can add code here to save transaction details
+                    
+                    // Optional: Redirect to thank you page
+                    // window.location.href = "thankyou.html";
+                    
+                    console.log("Payment Response:", response);
+                },
+                "prefill": {
+                    "name": "",
+                    "email": "",
+                    "contact": ""
+                },
+                "notes": {
+                    "product": productName,
+                    "price": price
+                },
+                "theme": {
+                    "color": "#667eea"
+                },
+                "modal": {
+                    "ondismiss": function() {
+                        console.log("Payment cancelled by user");
+                    }
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.on('payment.failed', function (response) {
+                alert(`❌ Payment failed! Error: ${response.error.description}`);
+                console.error("Payment Error:", response.error);
+            });
+            
+            rzp.open();
+            console.log(`Payment initiated for: ${productName} - ₹${price}`);
+        }
     </script>
 </body>
 </html>
